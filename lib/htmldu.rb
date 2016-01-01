@@ -1,5 +1,5 @@
 require "htmldu/version"
+require "htmldu/dirtree"
 
 module Htmldu
-  # Your code goes here...
 end
