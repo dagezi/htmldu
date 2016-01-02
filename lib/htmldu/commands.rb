@@ -17,7 +17,8 @@ module Htmldu
       @dirtree.generate_tree
 
       json_file = Tempfile.create("htmldu")
-      json_file.write(@dirtree.to_json)
+      json_file.write "dirtree="
+      json_file.write @dirtree.to_json
       json_file.close
       json_path = json_file.path + ".js"
       json_url = "file://#{json_path}"
