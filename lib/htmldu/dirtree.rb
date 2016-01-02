@@ -12,7 +12,7 @@ module Htmldu
       @path = name ? File.join(root, name) : root
     end
 
-    def generateTree()
+    def generate_tree()
       blocks = 0
       @children = []
       Dir.foreach(@path) do |name|
@@ -23,7 +23,7 @@ module Htmldu
 
         if stat.directory? and !stat.symlink?
           child = Dirtree.new(@path, name)
-          child.generateTree
+          child.generate_tree
           @children << child
           blocks += child.blocks
         end
@@ -31,7 +31,7 @@ module Htmldu
       @blocks = blocks
     end
 
-    def toJson(json: '')
+    def to_json(json: '')
       json << "{\"name\":\"#{@name}\","
       json << "\"path\":\"#{@path}\","
       json << "\"blocks\":#{@blocks},"
@@ -39,7 +39,7 @@ module Htmldu
       c = ''
       @children.each { |dir|
         json << c
-        dir.toJson(json: json)
+        dir.to_json(json: json)
         c = ','
       }
       json << ']}'

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'htmldu'
+
+Htmldu::Commands.start(ARGV, File.expand_path(File.dirname(File.dirname(__FILE__))))
