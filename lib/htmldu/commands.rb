@@ -13,6 +13,18 @@ module Htmldu
       @dirtree = Htmldu::Dirtree.new(@dir)
     end
 
+    def open_command
+      @open_command ||=
+        case RbConfig::CONFIG['host_os']
+        when /darwin/
+          'open'
+        when /linux|bsd/
+          'xdg-open'
+        when /mswin|mingw|cygwin/
+          'start'
+        end
+    end
+
     def exec()
       @dirtree.generate_tree
 
@@ -41,7 +53,7 @@ EOS
       html_file.close
       html_path = html_file.path + ".html"
       File.rename(html_file.path, html_path)
-      p html_path
+      system "#{open_command} #{html_path}"
     end
   end
 end
