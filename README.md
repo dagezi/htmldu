@@ -1,8 +1,8 @@
 # Htmldu
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/htmldu`. To experiment with that code, run `bin/console` for an interactive prompt.
+`htmldu` visualizes your hierarchical disk usage with WebBrowser.
 
-TODO: Delete this and the text above, and describe your gem
+In other word, it's HTML-fied `xdu`.
 
 ## Installation
 
